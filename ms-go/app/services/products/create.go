@@ -5,6 +5,7 @@ import (
 	"ms-go/app/helpers"
 	"ms-go/app/models"
 	"ms-go/db"
+	"ms-go/kafka"
 	"net/http"
 	"time"
 
@@ -38,6 +39,8 @@ func Create(data models.Product, isAPI bool) (*models.Product, error) {
 	if err != nil {
 		return nil, &helpers.GenericError{Msg: err.Error(), Code: http.StatusInternalServerError}
 	}
+
+	kafka.Test("products", data.Name) ///////////////
 
 	defer db.Disconnect()
 

@@ -15,7 +15,7 @@ func Connection() *mongo.Collection {
 	var err error
 
 	// Set client options
-	clientOptions := options.Client().ApplyURI("mongodb://mongodb:27017")
+	clientOptions := options.Client().ApplyURI("mongodb://root:root@mongodb:27017/test?authSource=admin")
 
 	// Connect to MongoDB
 	client, err = mongo.Connect(context.Background(), clientOptions)

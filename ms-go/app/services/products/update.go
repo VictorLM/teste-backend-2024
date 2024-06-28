@@ -64,6 +64,10 @@ func setUpdate(new, old *models.Product) {
 		new.Description = old.Description
 	}
 
+	if new.Stock == 0 { // TODO - what if new stock value is actually zero?
+		new.Stock = old.Stock
+	}
+
 	new.CreatedAt = old.CreatedAt
 
 	new.UpdatedAt = time.Now()

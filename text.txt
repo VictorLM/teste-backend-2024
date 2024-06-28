@@ -1,0 +1,2 @@
+Adicionado container MongoDB no docker-compose file
+ajustada a connect string do mongo DB no go app
